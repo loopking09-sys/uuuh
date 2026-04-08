@@ -1,0 +1,277 @@
+:root {
+    --primary-purple: #6a1b9a;
+    --primary-hover: #8e24aa;
+    --main-bg: #f4f7fe;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --border-radius: 20px;
+    --sms-border: #3498db;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--main-bg);
+    margin: 0;
+    padding-bottom: 80px; /* Space for bottom nav */
+}
+
+/* Sidebar (Desktop Only) */
+#sidebar-wrapper {
+    width: 250px;
+    background-color: var(--primary-purple);
+    min-height: 100vh;
+    color: white;
+    position: fixed;
+    z-index: 1000;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 30px 20px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#sidebar-wrapper .list-group-item {
+    background: none;
+    color: rgba(255,255,255,0.8);
+    border: none;
+    padding: 15px 25px;
+    margin: 5px 15px;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#sidebar-wrapper .list-group-item:hover, #sidebar-wrapper .list-group-item.active {
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+/* Page Content */
+#page-content-wrapper {
+    margin-left: 250px;
+}
+
+@media (max-width: 991px) {
+    #page-content-wrapper { margin-left: 0; }
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    z-index: 1050;
+    border-top: 1px solid #eee;
+}
+
+.bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex: 1;
+}
+
+.bottom-nav .nav-item i {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.bottom-nav .nav-item.active {
+    color: var(--primary-purple);
+}
+
+/* Common Components */
+.top-header-info {
+    background: #e0f7fa;
+    color: #006064;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50px;
+    padding: 12px 20px 12px 50px;
+    border: none;
+    box-shadow: var(--card-shadow);
+}
+
+.search-container i {
+    position: relative;
+    left: 45px;
+    top: 38px;
+    color: var(--primary-purple);
+}
+
+/* Overview Cards */
+.overview-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    border: none;
+}
+
+.overview-card h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-purple);
+    margin-bottom: 5px;
+}
+
+.overview-card p {
+    color: #888;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Device List Cards */
+.device-item-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.device-icon {
+    width: 50px;
+    height: 50px;
+    background: #f0e7ff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-purple);
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(106, 27, 154, 0.1);
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.status-online { background: #2ecc71; color: white; }
+.status-offline { background: #1b263b; color: white; }
+
+.sim-slot-box {
+    background: #f8f9fe;
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.sim-slot-box label { font-size: 0.65rem; color: #999; display: block; margin-bottom: 2px; }
+.sim-slot-box span { font-size: 0.8rem; font-weight: 700; color: #333; }
+
+/* Device Detail */
+.control-card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.btn-command {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 12px;
+    color: var(--primary-purple);
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.btn-command:hover { background: #f8f9fe; border-color: var(--primary-purple); }
+
+.sms-header-blue {
+    background: #0d6efd;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SMS Cards */
+.sms-card {
+    background: white;
+    border: 2px solid var(--sms-border);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.sms-card .sms-top { display: flex; justify-content: space-between; font-weight: 700; color: #333; }
+.sms-card .sms-to { font-size: 0.9rem; color: #444; margin-top: 5px; font-weight: 700; }
+.sms-card hr { margin: 10px 0; border-top: 1px solid #ddd; opacity: 1; }
+.sms-card .sms-body { font-size: 0.95rem; color: #000; line-height: 1.4; word-break: break-word; }
+.sms-card .sms-foot { display: flex; justify-content: center; gap: 40px; margin-top: 10px; }
+.btn-sms-del { background: #000; color: white; width: 40px; height: 40px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; }
+.btn-sms-copy { background: none; border: none; font-size: 1.8rem; }
+
+/* Modals */
+.modal-content { border-radius: 30px !important; border: none; }
+.btn-on { background: #ff4d6d; color: white; font-weight: 800; border-radius: 12px; padding: 12px; }
+.btn-off { background: #1b263b; color: white; font-weight: 800; border-radius: 12px; padding: 12px; }
+.btn-send { background: #3b82f6; color: white; font-weight: 800; border-radius: 12px; padding: 12px; }
+
+/* Form Card */
+.form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--card-shadow);
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.form-card .form-control {
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.form-card .btn-update {
+    background: var(--primary-purple);
+    color: white;
+    border-radius: 10px;
+    padding: 12px;
+    width: 100%;
+    font-weight: 700;
+}
